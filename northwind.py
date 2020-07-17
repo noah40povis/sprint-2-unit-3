@@ -51,20 +51,23 @@ ORDER by Unique_Products DESC
 LIMIT 1; 
 
 """
-print('hi')
+curs.execute(query)
+print(curs.fetchall())
 ### Part 4 - Questions (and your Answers)
 
 Answer the following questions, baseline ~3-5 sentences each, as if they were
 interview screening questions (a form you fill when applying for a job):
 
 
-- In the Northwind database, what is the type of relationship between the
-  `Employee` and `Territory` tables?
-
-- What is a situation where a document store (like MongoDB) is appropriate, and
+#- In the Northwind database, what is the type of relationship between the
+#  `Employee` and `Territory` tables?
+#Many to many 
+#- What is a situation where a document store (like MongoDB) is appropriate, and
   what is a situation where it is not appropriate?
-- What is "NewSQL", and what is it trying to achieve?
-
+#MongoDB is appropriate for companies like a startup looking for an easily scalable document storage system for a new product. 
+#It is not appropriate where there is a company that has huge amounts of data and a rigid storage system structure. 
+#- What is "NewSQL", and what is it trying to achieve?
+# NewSql is a class of relational database managment. It tries to merge the benefits of a nosql and a traditional relational database system. 
 
 # - (*Stretch*) Who's the employee with the most territories? Use `TerritoryId`
 #   (not name, region, or other fields) as the unique identifier for territories.
