@@ -50,7 +50,7 @@ GROUP BY ProductName
 ORDER by Num DESC
 LIMIT 1; 
 """
-
+print('hi')
 ### Part 4 - Questions (and your Answers)
 
 Answer the following questions, baseline ~3-5 sentences each, as if they were
