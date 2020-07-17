@@ -43,18 +43,20 @@ print(curs.fetchall())
 
 # - What is the largest category (by number of unique products in it)?
 query = """
-SELECT COUNT(CategoryId)  AS Num , ProductName, CategoryName
+SELECT CategoryName, Count(DISTINCT ProductName) as Unique_Products 
 FROM Product
-Join Category
-GROUP BY ProductName 
-ORDER by Num DESC
+Join Category ON CategoryId = CategoryId
+GROUP BY CategoryName
+ORDER by Unique_Products DESC
 LIMIT 1; 
+
 """
 print('hi')
 ### Part 4 - Questions (and your Answers)
 
 Answer the following questions, baseline ~3-5 sentences each, as if they were
 interview screening questions (a form you fill when applying for a job):
+
 
 - In the Northwind database, what is the type of relationship between the
   `Employee` and `Territory` tables?
