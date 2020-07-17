@@ -43,9 +43,11 @@ print(curs.fetchall())
 
 # - What is the largest category (by number of unique products in it)?
 query = """
-SELECT CategoryName, Count(DISTINCT ProductName) as Unique_Products 
+SELECT 
+    CategoryName, 
+        Count(DISTINCT ProductName) as Unique_Products 
 FROM Product
-Join Category ON CategoryId = CategoryId
+Join Category ON Category.Id = Product.CategoryId
 GROUP BY CategoryName
 ORDER by Unique_Products DESC
 LIMIT 1; 
@@ -55,15 +57,15 @@ curs.execute(query)
 print(curs.fetchall())
 ### Part 4 - Questions (and your Answers)
 
-Answer the following questions, baseline ~3-5 sentences each, as if they were
-interview screening questions (a form you fill when applying for a job):
+# Answer the following questions, baseline ~3-5 sentences each, as if they were
+# interview screening questions (a form you fill when applying for a job):
 
 
-#- In the Northwind database, what is the type of relationship between the
+# #- In the Northwind database, what is the type of relationship between the
 #  `Employee` and `Territory` tables?
 #Many to many 
-#- What is a situation where a document store (like MongoDB) is appropriate, and
-  what is a situation where it is not appropriate?
+#- What is a situation where a document store (like MongoDB) is appropriate, and#
+# what is a situation where it is not appropriate?
 #MongoDB is appropriate for companies like a startup looking for an easily scalable document storage system for a new product. 
 #It is not appropriate where there is a company that has huge amounts of data and a rigid storage system structure. 
 #- What is "NewSQL", and what is it trying to achieve?
